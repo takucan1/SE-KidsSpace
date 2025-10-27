@@ -10,11 +10,24 @@
 
 <div class="container" id="login-page">
   <h2>Student Login</h2>
-  <input type="text" id="username" placeholder="Enter your name">
-  <input type="password" id="password" placeholder="Enter password">
+  <input type="text" id="username" placeholder="Enter your name"><br>
+  <input type="password" id="password" placeholder="Enter password"><br><br>
   <button onclick="login()">Login</button>
   <p id="login-error" style="color:red;text-align:center;"></p>
+  <button onclick="register()">Register</button> 
+  <button onclick="forgotPass()">Forgot</button>
 </div>
 
+<style>
+    .container {
+        width: 300px;
+        margin: 100px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+</style>
 </body>
 </html>
