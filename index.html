@@ -9,7 +9,7 @@
 <body>
 
 <div class="container" id="login-page">
-  <h2>KidsSpace</h2>
+  <h2 class="name">KidsSpace</h2>
   <input type="text" id="username" placeholder="Enter your name"><br>
   <input type="password" id="password" placeholder="Enter password"><br><br>
   <button onclick="login()">Login</button>
@@ -20,13 +20,23 @@
 
 <style>
     .container {
-        width: 300px;
+        width: auto;
+        length: auto;
         margin: 100px auto;
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
         text-align: center;
         font-family: Arial, sans-serif;
+        background-color: cadetblue;
+    }
+
+    .name {
+        font-size: 70px;
+        margin-bottom: 20px;
+        font-style: italic;
+        font-family: cursive;
+
     }
 </style>
 </body>
