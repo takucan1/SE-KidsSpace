@@ -1,0 +1,22 @@
+<style>
+    .container {
+        width: 300px;
+        width: auto;
+        length: auto;
+        margin: 100px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: cadetblue;
+    }
+
+    .name {
+        font-size: 70px;
+        margin-bottom: 20px;
+        font-style: italic;
+        font-family: cursive;
+
+    }
+</style>
