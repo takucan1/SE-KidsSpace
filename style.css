@@ -46,6 +46,7 @@
   cursor: pointer;
   border-radius: 12px;
   min-width: 120px;
+  font-style: italic;
 }
 
 /* Small adjustments for very small screens */
