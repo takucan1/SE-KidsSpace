@@ -1,0 +1,433 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+
+.login-page {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 140, 255, 0.51) 0%,
+    rgba(0, 191, 169, 0.51) 100%
+  );
+  width: 100%;
+  min-width: 412px;
+  min-height: 917px;
+  position: relative;
+}
+
+.login-page .input-field {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-space-200);
+  position: absolute;
+  top: 300px;
+  left: 86px;
+}
+
+.login-page .label {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: var(--body-base-font-family);
+  font-weight: var(--body-base-font-weight);
+  color: var(--color-text-default-default);
+  font-size: var(--body-base-font-size);
+  letter-spacing: var(--body-base-letter-spacing);
+  line-height: var(--body-base-line-height);
+  font-style: var(--body-base-font-style);
+}
+
+.login-page .input {
+  min-width: 240px;
+  padding: var(--size-space-300) var(--size-space-400) var(--size-space-300)
+    var(--size-space-400);
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  margin-bottom: -1.00px;
+  margin-left: -1.00px;
+  margin-right: -1.00px;
+  background-color: var(--color-background-default-default);
+  border-radius: var(--size-radius-200);
+  overflow: hidden;
+  border: 1px solid;
+  border-color: var(--color-border-default-default);
+  flex: 1;
+  margin-top: -0.50px;
+  font-family: var(--single-line-body-base-font-family);
+  font-weight: var(--single-line-body-base-font-weight);
+  color: var(--color-text-default-default);
+  font-size: var(--single-line-body-base-font-size);
+  text-align: center;
+  letter-spacing: var(--single-line-body-base-letter-spacing);
+  line-height: var(--single-line-body-base-line-height);
+  font-style: var(--single-line-body-base-font-style);
+}
+
+.login-page .div-wrapper {
+  display: flex;
+  width: 242px;
+  align-items: center;
+  padding: var(--size-space-300) var(--size-space-400) var(--size-space-300)
+    var(--size-space-400);
+  position: absolute;
+  top: 391px;
+  left: 85px;
+  background-color: var(--color-background-default-default);
+  border-radius: var(--size-radius-200);
+  overflow: hidden;
+  border: 1px solid;
+  border-color: var(--color-border-default-default);
+}
+
+.login-page .text-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 500px;
+  left: 85px;
+  width: 242px;
+}
+
+.action-button {
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--body-base-font-family, 'Arial', sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn {
+  background-color: #008CFF;
+}
+
+.register-btn {
+  background-color: #00BFA9;
+}
+
+.forgot-btn {
+  background-color: #6C757D;
+}
+
+.action-button:hover {
+  opacity: 0.9;
+}
+
+.action-button:active {
+  transform: translateY(1px);
+}
+
+.action-button:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+  margin-top: -0.50px;
+  font-family: var(--single-line-body-base-font-family);
+  font-weight: var(--single-line-body-base-font-weight);
+  color: var(--color-text-default-default);
+  font-size: var(--single-line-body-base-font-size);
+  text-align: center;
+  letter-spacing: var(--single-line-body-base-letter-spacing);
+  line-height: var(--single-line-body-base-line-height);
+  font-style: var(--single-line-body-base-font-style);
+}
+
+/* Button Styles */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  top: 460px;
+  left: 85px;
+  width: 242px;
+}
+
+.action-button {
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--body-base-font-family, "Roboto", sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.login-btn {
+  background-color: #008CFF;
+}
+
+.register-btn {
+  background-color: #00BFA9;
+}
+
+.forgot-btn {
+  background-color: #6C757D;
+}
+
+.action-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.action-button:active {
+  transform: translateY(1px);
+}
+
+.action-button:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+:root {
+  --body-base-font-family: "Inter", Helvetica;
+  --body-base-font-weight: 400;
+  --body-base-font-size: 16px;
+  --body-base-letter-spacing: 0px;
+  --body-base-line-height: 139.9999976158142%;
+  --body-base-font-style: normal;
+  --single-line-body-base-font-family: "Inter", Helvetica;
+  --single-line-body-base-font-weight: 400;
+  --single-line-body-base-font-size: 16px;
+  --single-line-body-base-letter-spacing: 0px;
+  --single-line-body-base-line-height: 100%;
+  --single-line-body-base-font-style: normal;
+  --m3-label-large-font-family: "Roboto", Helvetica;
+  --m3-label-large-font-weight: 500;
+  --m3-label-large-font-size: 14px;
+  --m3-label-large-letter-spacing: 0.10000000149011612px;
+  --m3-label-large-line-height: 20px;
+  --m3-label-large-font-style: normal;
+  --color-text-default-default: var(--color-primitives-gray-900);
+  --color-background-default-default: var(--color-primitives-white-1000);
+  --color-border-default-default: var(--color-primitives-gray-300);
+  --m3-schemes-on-surface-variant: rgba(73, 69, 79, 1);
+  --m3-schemes-outline-variant: rgba(202, 196, 208, 1);
+  --color-primitives-gray-900: rgba(30, 30, 30, 1);
+  --color-primitives-white-1000: rgba(255, 255, 255, 1);
+  --color-primitives-gray-300: rgba(217, 217, 217, 1);
+  --color-primitives-gray-600: rgba(68, 68, 68, 1);
+  --size-space-400: 16px;
+  --size-space-300: 12px;
+  --size-radius-200: 8px;
+  --size-space-200: 8px;
+}
+
+/*
+
+To enable a theme in your HTML, simply add one of the following data attributes to an HTML element, like so:
+
+<body data-color-mode="SDS-light">
+    <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-color-mode="SDS-light"] {
+  --color-text-default-default: var(--color-primitives-gray-900);
+  --color-background-default-default: var(--color-primitives-white-1000);
+  --color-border-default-default: var(--color-primitives-gray-300);
+}
+
+[data-color-mode="SDS-dark"] {
+  --color-text-default-default: var(--color-primitives-white-1000);
+  --color-background-default-default: var(--color-primitives-gray-900);
+  --color-border-default-default: var(--color-primitives-gray-600);
+}
+
+[data-color-mode="brand-b-light"] {
+  --color-text-default-default: var(--color-primitives-gray-900);
+  --color-background-default-default: var(--color-primitives-white-1000);
+  --color-border-default-default: var(--color-primitives-gray-300);
+}
+
+[data-m3-mode="light"] {
+  --m3-schemes-on-surface-variant: rgba(73, 69, 79, 1);
+  --m3-schemes-outline-variant: rgba(202, 196, 208, 1);
+}
+
+[data-m3-mode="light-high-contrast"] {
+  --m3-schemes-on-surface-variant: rgba(37, 35, 43, 1);
+  --m3-schemes-outline-variant: rgba(69, 65, 74, 1);
+}
+
+[data-m3-mode="light-medium-contrast"] {
+  --m3-schemes-on-surface-variant: rgba(69, 65, 74, 1);
+  --m3-schemes-outline-variant: rgba(125, 121, 131, 1);
+}
+
+[data-m3-mode="dark"] {
+  --m3-schemes-on-surface-variant: rgba(202, 196, 208, 1);
+  --m3-schemes-outline-variant: rgba(73, 69, 79, 1);
+}
+
+[data-m3-mode="dark-high-contrast"] {
+  --m3-schemes-on-surface-variant: rgba(255, 249, 255, 1);
+  --m3-schemes-outline-variant: rgba(206, 200, 212, 1);
+}
+
+[data-m3-mode="dark-medium-contrast"] {
+  --m3-schemes-on-surface-variant: rgba(206, 200, 212, 1);
+  --m3-schemes-outline-variant: rgba(134, 129, 139, 1);
+}
+
+[data-m3-mode="monochrome-LT"] {
+  --m3-schemes-on-surface-variant: rgba(71, 71, 71, 1);
+  --m3-schemes-outline-variant: rgba(198, 198, 198, 1);
+}
+
+[data-m3-mode="monochrome-DT"] {
+  --m3-schemes-on-surface-variant: rgba(198, 198, 198, 1);
+  --m3-schemes-outline-variant: rgba(71, 71, 71, 1);
+}
+
+[data-m3-mode="pink-LT"] {
+  --m3-schemes-on-surface-variant: rgba(80, 67, 72, 1);
+  --m3-schemes-outline-variant: rgba(212, 194, 199, 1);
+}
+
+[data-m3-mode="pink-DT"] {
+  --m3-schemes-on-surface-variant: rgba(212, 194, 199, 1);
+  --m3-schemes-outline-variant: rgba(80, 67, 72, 1);
+}
+
+[data-m3-mode="rose-LT"] {
+  --m3-schemes-on-surface-variant: rgba(82, 67, 69, 1);
+  --m3-schemes-outline-variant: rgba(215, 194, 195, 1);
+}
+
+[data-m3-mode="rose-DT"] {
+  --m3-schemes-on-surface-variant: rgba(215, 194, 195, 1);
+  --m3-schemes-outline-variant: rgba(82, 67, 69, 1);
+}
+
+[data-m3-mode="red-LT"] {
+  --m3-schemes-on-surface-variant: rgba(83, 67, 65, 1);
+  --m3-schemes-outline-variant: rgba(216, 194, 190, 1);
+}
+
+[data-m3-mode="red-DT"] {
+  --m3-schemes-on-surface-variant: rgba(216, 194, 190, 1);
+  --m3-schemes-outline-variant: rgba(83, 67, 65, 1);
+}
+
+[data-m3-mode="orange-LT"] {
+  --m3-schemes-on-surface-variant: rgba(82, 68, 60, 1);
+  --m3-schemes-outline-variant: rgba(215, 194, 184, 1);
+}
+
+[data-m3-mode="orange-DT"] {
+  --m3-schemes-on-surface-variant: rgba(215, 194, 184, 1);
+  --m3-schemes-outline-variant: rgba(82, 68, 60, 1);
+}
+
+[data-m3-mode="yellow-LT"] {
+  --m3-schemes-on-surface-variant: rgba(77, 70, 57, 1);
+  --m3-schemes-outline-variant: rgba(208, 197, 180, 1);
+}
+
+[data-m3-mode="yellow-DT"] {
+  --m3-schemes-on-surface-variant: rgba(208, 197, 180, 1);
+  --m3-schemes-outline-variant: rgba(77, 70, 57, 1);
+}
+
+[data-m3-mode="chartreuse-LT"] {
+  --m3-schemes-on-surface-variant: rgba(71, 72, 59, 1);
+  --m3-schemes-outline-variant: rgba(200, 199, 183, 1);
+}
+
+[data-m3-mode="chartreuse-DT"] {
+  --m3-schemes-on-surface-variant: rgba(200, 199, 183, 1);
+  --m3-schemes-outline-variant: rgba(71, 72, 59, 1);
+}
+
+[data-m3-mode="green-LT"] {
+  --m3-schemes-on-surface-variant: rgba(66, 73, 64, 1);
+  --m3-schemes-outline-variant: rgba(193, 201, 190, 1);
+}
+
+[data-m3-mode="green-DT"] {
+  --m3-schemes-on-surface-variant: rgba(193, 201, 190, 1);
+  --m3-schemes-outline-variant: rgba(66, 73, 64, 1);
+}
+
+[data-m3-mode="teal-LT"] {
+  --m3-schemes-on-surface-variant: rgba(63, 73, 70, 1);
+  --m3-schemes-outline-variant: rgba(190, 201, 197, 1);
+}
+
+[data-m3-mode="teal-DT"] {
+  --m3-schemes-on-surface-variant: rgba(190, 201, 197, 1);
+  --m3-schemes-outline-variant: rgba(63, 73, 70, 1);
+}
+
+[data-m3-mode="cyan-LT"] {
+  --m3-schemes-on-surface-variant: rgba(64, 72, 75, 1);
+  --m3-schemes-outline-variant: rgba(191, 200, 204, 1);
+}
+
+[data-m3-mode="cyan-DT"] {
+  --m3-schemes-on-surface-variant: rgba(191, 200, 204, 1);
+  --m3-schemes-outline-variant: rgba(64, 72, 75, 1);
+}
+
+[data-m3-mode="blue-LT"] {
+  --m3-schemes-on-surface-variant: rgba(68, 70, 79, 1);
+  --m3-schemes-outline-variant: rgba(197, 198, 208, 1);
+}
+
+[data-m3-mode="blue-DT"] {
+  --m3-schemes-on-surface-variant: rgba(197, 198, 208, 1);
+  --m3-schemes-outline-variant: rgba(68, 70, 79, 1);
+}
+
+[data-m3-mode="indigo-LT"] {
+  --m3-schemes-on-surface-variant: rgba(71, 70, 79, 1);
+  --m3-schemes-outline-variant: rgba(200, 197, 208, 1);
+}
+
+[data-m3-mode="indigo-DT"] {
+  --m3-schemes-on-surface-variant: rgba(200, 197, 208, 1);
+  --m3-schemes-outline-variant: rgba(71, 70, 79, 1);
+}
+
+[data-m3-mode="purple-LT"] {
+  --m3-schemes-on-surface-variant: rgba(74, 69, 78, 1);
+  --m3-schemes-outline-variant: rgba(203, 196, 207, 1);
+}
+
+[data-m3-mode="purple-DT"] {
+  --m3-schemes-on-surface-variant: rgba(203, 196, 207, 1);
+  --m3-schemes-outline-variant: rgba(74, 69, 78, 1);
+}
