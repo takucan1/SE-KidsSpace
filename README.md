@@ -9,6 +9,6 @@ Description: KidsSpace is a kid-friendly Learning Management System (LMS) web ap
 -------------------------------------------------------------------------------
 Members:
 
-Stephen Aledon (takucan1) - 
-Josh Allen Tipactipac (Deadlidaisy122) -
-Dave Torrefranca (Debb) -
+Stephen Aledon (takucan1) - Interface Design, Frontend, Backend(Database)
+Josh Allen Tipactipac (Deadlidaisy122) - Procedural Design, Frontend Dev
+Dave Torrefranca (Debb) - Software Architectural, Frontend Dev
