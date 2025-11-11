@@ -33,10 +33,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <main class="login-page">     
     <div class="container">
         <div class="form-box <?= isActiveForm('login', $activeForm); ?>" id="login-form">
             <form action="login_register.php" method="post">
+                <p class="kids-space">
+                    <span class="span">&nbsp;</span>
+                    <span class="text-wrapper-2">K</span>
+                    <span class="text-wrapper-3">i</span>
+                    <span class="text-wrapper-4">d</span>
+                    <span class="text-wrapper-2">sS</span>
+                    <span class="text-wrapper-5">p</span>
+                    <span class="text-wrapper-3">a</span>
+                    <span class="text-wrapper-4">c</span>
+                    <span class="text-wrapper-2">e</span>
+                </p>
                 <h2>Login</h2>
                 <?= showError($errors['login'], $activeForm);?>
                 <input type="email" name="email" placeholder="Email" required>  
@@ -60,11 +71,14 @@
                     <option value="student">student</option>
                     <option value="teacher">teacher</option>
                 </select>
+                 <input type="checkbox" name="terms" required> I understand the terms and conditions</input>
                 <button type="submit" name="register">Register</button>
                 <p>Already have an account? <a href="#" onclick="showForm('login-form')">Login</a></p>
             </form>
         </div>
 
         <script src="script.js"></script>
+
+    </main>
 </body>
 </html>
