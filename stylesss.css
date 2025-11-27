@@ -49,3 +49,13 @@
   font-style: italic;
 }
 
+/* Small adjustments for very small screens */
+@media (max-width: 420px) {
+  .welcome-page {
+    padding: 1rem;
+  }
+  .student-button, .teacher-button, .parent-button {
+    padding: 10px 14px;
+    min-width: 100px;
+  }
+}
