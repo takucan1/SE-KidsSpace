@@ -35,7 +35,7 @@ if (isset($_POST['login'])) {
             if($user['role'] === 'student') {
                 header('Location: student_page.php');   
             } else {
-                header('Location: teacher_page.php');
+                header('Location: teacherPage/teacherpage.php');
             }
             exit();
         }
