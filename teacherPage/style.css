@@ -113,10 +113,27 @@ body {
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* Two columns for balanced 2x2 layout on medium+ screens */
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
-    max-width: 1400px;
+    /* Keep grid width reasonable so cards center nicely */
+    max-width: 1100px;
     margin: 0 auto;
+}
+
+/* Responsive: single column on narrow screens */
+@media (max-width: 700px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+}
+
+/* Optional: allow more columns if user wants very large displays in future */
+@media (min-width: 1500px) {
+    .dashboard-grid {
+        max-width: 1400px;
+    }
 }
 
 .dashboard-card {
