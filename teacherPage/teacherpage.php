@@ -40,10 +40,11 @@
             <!-- Courses Card -->
 
             <div class="dashboard-card courses-card"> 
+                <a href="Courses.html">
                 <div class="card-icon">📚</div>
                 <h2>Courses</h2>
                 <p>Manage and view all your courses</p>
-                <a href="Courses.html"></a>     
+                </a>     
             </div>
 
             <!-- Quizzes & Activities Card -->
