@@ -167,10 +167,11 @@ body {
     box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
 }
 
-.quizzes-card:hover {
-    border-color: #FF9800;
-    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+/* Remove underline effect from courses-card */
+.courses-card {
+    box-shadow: none !important;
 }
+
 
 .materials-card:hover {
     border-color: #2196F3;
