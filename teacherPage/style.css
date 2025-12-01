@@ -189,6 +189,10 @@ body {
     box-shadow: none !important;
 }
 
+.quizzes-card:hover {
+    border-color: #FF9800;
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+}
 
 .materials-card:hover {
     border-color: #2196F3;

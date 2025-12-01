@@ -38,21 +38,24 @@
     <main class="dashboard">
         <div class="dashboard-grid">
             <!-- Courses Card -->
-
-            <div class="dashboard-card courses-card"> 
-                <a href="Courses.html">
-                <div class="card-icon">📚</div>
-                <h2>Courses</h2>
-                <p>Manage and view all your courses</p>
-                </a>     
-            </div>
+            <a href="Courses.html">
+                <div class="dashboard-card courses-card">               
+                    <div class="card-icon">📚</div>
+                    <h2>Courses</h2>
+                    <p>Manage and view all your courses</p>                    
+                </div>
+            </a>
 
             <!-- Quizzes & Activities Card -->
+             
+            <a href="Quizzes&Activities.html">
             <div class="dashboard-card quizzes-card">
                 <div class="card-icon">✏️</div>
                 <h2>Quizzes & Activities</h2>
                 <p>Create and manage assessments</p>
             </div>
+            </a>
+
 
             <!-- Learning Materials & Modules Card -->
             <div class="dashboard-card materials-card">
