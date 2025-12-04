@@ -54,7 +54,7 @@
                     <a href="Quizzes_Activities.html">
                     <div class="card-icon">✏️</div>
                     <h2>Quizzes & Activities</h2>
-                      <p>Create and manage assessments</p>
+                      <p>Create and manage assessm  ents</p>
                     </a>
                 </div>
          
@@ -79,4 +79,5 @@
     <footer class="bottom-nav">
         Version 1.3.1
     </footer>
- </body>   
+ </body>
+ </html>   

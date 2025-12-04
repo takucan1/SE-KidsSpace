@@ -194,6 +194,17 @@ body {
     box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
 }
 
+.dashboard-card a{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.dashboard-card {
+    cursor: pointer;
+}
+
 .materials-card:hover {
     border-color: #2196F3;
     box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
