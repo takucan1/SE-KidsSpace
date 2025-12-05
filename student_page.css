@@ -14,6 +14,21 @@
     --border:.1rem solid rgba(0,0,0,.08);  
 }
 
+/* Dark theme overrides — applied when <body class="dark"> */
+body.dark{
+    --main--color:#0b2545;
+    --main-dark:#04132a;
+    --gradient-start:#02142a;
+    --gradient-end:#071428;
+    --red:#ff6b6b;
+    --orange:#ffb86b;
+    --white:#f8fafc;
+    --black:#e6eef8;
+    --light-color:#9fb0c9;
+    --light-bg:#071428;
+    --border:.1rem solid rgba(255,255,255,0.04);
+}
+
 *{
     font-family: 'Nunito', sans-serif;
     margin: 0;

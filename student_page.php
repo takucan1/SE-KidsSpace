@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="student_page.css">
 </head>
-<body">
+<body>
 
 <!-- Start of Header Section -->
 
@@ -39,7 +39,7 @@
         </div>
 
         <div class="profile">
-            <img src="images/profile.png" alt="">
+            <img src="studentprofile.png" alt="">
             <h3>Student Name</h3>
             <span>student</span>
             <a href="profile.html" class="btn">View Profile</a>
@@ -59,7 +59,7 @@
 <div class="side-bar">
 
     <div class="profile">
-            <img src="images/profile.png" alt="">
+            <img src="studentprofile.png" alt="">
             <h3>Student Name</h3>
             <span>student</span>
             <a href="profile.html" class="btn">View Profile</a>
