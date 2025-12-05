@@ -41,7 +41,7 @@
             <!-- Courses Card -->
            
                 <div class="dashboard-card courses-card"> 
-                     <              
+                                 
                     <div class="card-icon">📚</div>
                     <h2>Courses</h2>
                      <p>Manage and view all your courses</p> 

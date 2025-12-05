@@ -93,6 +93,108 @@ body {
     overflow: visible;
 }
 
+/* --- MAIN DASHBOARD --- */
+.dashboard {
+    padding: 40px 20px 80px 20px; /* Top, sides, bottom (for fixed footer) */
+    min-height: calc(100vh - 70px); /* Full height minus navbar */
+}
+
+.dashboard-grid {
+    display: grid;
+    /* Two columns for balanced 2x2 layout on medium+ screens */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    /* Keep grid width reasonable so cards center nicely */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Responsive: single column on narrow screens */
+@media (max-width: 700px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+}
+
+/* Optional: allow more columns if user wants very large displays in future */
+@media (min-width: 1500px) {
+    .dashboard-grid {
+        max-width: 1400px;
+    }
+}
+
+.dashboard-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+/*Fonts*/
+.dashboard-card h1 {
+    font-size: 50px;
+    margin: 15px 0 10px 0;
+    color: hsl(55, 93%, 48%);
+    font-family: cursive;
+}
+
+.dashboard-card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Individual card colors on hover */
+.courses-card:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+}
+
+/* Remove underline effect from courses-card */
+.courses-card {
+    box-shadow: none !important;
+}
+
+.quizzes-card:hover {
+    border-color: #FF9800;
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+}
+
+
+.materials-card:hover {
+    border-color: #2196F3;
+    box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
+}
+
+.performance-card:hover {
+    border-color: #F44336;
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3);
+}
+
+
 /* --- BOTTOM NAVBAR (VERSION BAR) --- */
 .bottom-nav {
     position: fixed;
