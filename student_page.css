@@ -143,7 +143,7 @@ section{
 
 .header{
     background-color: var(--main--color);
-    border-bottom: var(--border);
+    border-bottom: none;
     position: sticky;
     top: 0;
     left: 0;
@@ -342,7 +342,7 @@ section{
     height: 100vh;
     width: 30rem;
     background-color: var(--main--color);
-    border-right: .05rem solid rgba(255,255,255,0.06);
+    border-right: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 2.6rem;
     box-shadow: 0 .8rem 2rem rgba(37,99,235,0.08), inset .6rem 0 1.2rem rgba(0,0,0,0.02);
@@ -395,6 +395,9 @@ section{
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
+
+/* Ensure navbar has no border lines */
+.side-bar .navbar{border: none}
 
 /* Make navbar links more pill-like (bobbly) */
 .side-bar .navbar a{
@@ -473,6 +476,22 @@ section{
     .side-bar{width:22rem}
     .header::after{display:none}
 }
+
+/* User requested: remove border-radius (make corners sharp) */
+.header,
+.header .flex .icons div,
+.header .flex .icons .icon-btn,
+.header .flex .profile,
+.side-bar,
+.side-bar .profile,
+.side-bar .navbar a,
+.submission-item img,
+img{
+    border-radius: 0 !important;
+}
+
+/* ensure header decorative bubble not visible when radii removed */
+.header::after{display:none !important}
 
 .dashboard-title{
     font-size:3rem;
