@@ -67,10 +67,10 @@
 
     <nav class="navbar">
         <a href="student_page.php"><i class="fas fa-home"></i><span>Home</span></a>
-        <a href="sidebar/about_us.html"><i class="fas fa-question"></i><span>About us</span></a>
-        <a href="sidebar/course.html"><i class="fas fa-book"></i><span>Courses</span></a>
+        <a href="studentpage/about_us.html"><i class="fas fa-question"></i><span>About us</span></a>
+        <a href="studentpage/course.html"><i class="fas fa-book"></i><span>Courses</span></a>
         <a href="teachers.html"><i class="fas fa-chalkboard-teacher"></i><span>Teachers</span></a>
-        <a href="sidebar/contact_us.html"><i class="fas fa-headset"></i><span>Contact us</span></a>
+        <a href="studentpage/contact.html"><i class="fas fa-headset"></i><span>Contact us</span></a>
         <a href="logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
     </nav>
 </div>

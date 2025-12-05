@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap');
 
 *:root{
-    --main--color:blue;        
+    --main--color:#3b82f6;
+    --main-dark:#2563eb;
+    --gradient-start:#4dd2ff;
+    --gradient-end:#ffffff;
     --red:#c0392b;
-    --orage: #FFD42A;             
-    --white:#d5d0d0;
-    --black:#1A1A1A;              
+    --orange:#FFD42A;             
+    --white:#ffffff;
+    --black:#000000;              
     --light-color:#888;
-    --light-bg:#d5d0d0;              
-    --border:.1rem solid rgba(0,0,0,.15);  
+    --light-bg:#f6f9ff;              
+    --border:.1rem solid rgba(0,0,0,.08);  
 }
 
 *{
@@ -45,8 +48,9 @@ html{
 }
 
 body{
-    background-color: var(--light-bg);
+    background: linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     padding-left:30rem;
+    min-height:100vh;
 }
 
 img{
@@ -132,6 +136,26 @@ section{
     z-index: 1000;
 }
 
+/* Bobbly header styling */
+.header{
+    border-bottom-left-radius: 2.4rem;
+    border-bottom-right-radius: 2.4rem;
+    box-shadow: 0 .8rem 2rem rgba(37,99,235,0.12), inset 0 -.6rem 1rem rgba(0,0,0,0.04);
+}
+
+.header::after{
+    content: '';
+    position: absolute;
+    left: 2rem;
+    bottom: -2.4rem;
+    width: 6rem;
+    height: 6rem;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 40%);
+    border-radius: 50%;
+    filter: blur(.6rem);
+    pointer-events: none;
+}
+
 .header .flex{
     padding: 1.5rem 2rem;
     position: relative;
@@ -142,7 +166,7 @@ section{
 
 .header .flex .logo{
     font-size: 2.5rem;
-    color: var(--black);
+    color: var(--white);
     font-weight: bolder;
     font-style: italic;
 }
@@ -154,40 +178,50 @@ section{
     align-items: center;
     gap: 2rem;
     padding: 1.5rem 2rem;
-    background-color: var(--light-bg);
-    
+    background-color: rgba(255,255,255,0.12);
+    backdrop-filter: blur(3px);
 }
 
 .header .flex .search-form input{
     width: 100%;
     background: none;
     font-size: 1.8rem;
-    color: var(--black)
+    color: var(--white);
 }
 
 .header .flex .search-form button{
     font-size: 2rem;
-    color: var(--black);
+    color: var(--white);
     cursor: pointer;
     background: none;
 }
 
 .header .flex .search-form button:hover{
-    color: var(--main--color);
+    color: var(--main-dark);
 }
 
 .header .flex .icons div{
     font-size: 2rem;
-    color: var(--black);
+    color: var(--white);
     border-radius: .5rem;
     cursor: pointer;
     margin-left: 2rem;
     height: 4.5rem;
     width: 4.5rem;
     line-height: 4.4rem;
-    background-color: var(--light-bg);
+    background-color: rgba(255,255,255,0.08);
     text-align: center;
     margin-left: .5rem;
+}
+
+.header .flex .icons div{
+    border-radius: 3rem;
+    box-shadow: 0 .4rem 1rem rgba(16,24,40,0.08);
+}
+
+.header .flex .icons .icon-btn{
+    border-radius: 50%;
+    box-shadow: 0 .3rem .8rem rgba(16,24,40,0.06);
 }
 
 .header .flex .icons .icon-btn{
@@ -208,7 +242,7 @@ section{
 }
 
 .header .flex .icons div:hover{
-    background-color:var(--black);
+    background-color: rgba(255,255,255,0.18);
     color:var(--white);
 }
 
@@ -292,14 +326,17 @@ section{
     top: 0; left: 0;
     height: 100vh;
     width: 30rem;
-    background-color: var(--white);
-    border-right: var(--border);
-   
+    background-color: var(--main--color);
+    border-right: .05rem solid rgba(255,255,255,0.06);
+    border-top-right-radius: 2.6rem;
+    border-bottom-right-radius: 2.6rem;
+    box-shadow: 0 .8rem 2rem rgba(37,99,235,0.08), inset .6rem 0 1.2rem rgba(0,0,0,0.02);
 }
 
 .side-bar .profile{
     padding: 3rem 2rem;
     text-align: center;
+    position: relative;
 }
 
 .side-bar .profile img{
@@ -312,16 +349,37 @@ section{
 
 .side-bar .profile h3{
     font-size: 2rem;
-    color: var(--black);
+    color: var(--white);
 }
 
 .side-bar .profile span{
-    color: var(--light-color);
+    color: rgba(255,255,255,0.9);
     font-size: 1.6rem;
 }
 
 .side-bar .navbar{
     margin-top: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    max-height: calc(100vh - 18rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Make navbar links more pill-like (bobbly) */
+.side-bar .navbar a{
+    display: block;
+    padding: 1.2rem 1.6rem;
+    margin: .6rem 0;
+    font-size: 1.8rem;
+    border-radius: 1.6rem;
+    background: rgba(255,255,255,0.04);
+    transition: transform .14s ease, background .14s ease;
+}
+
+.side-bar .navbar a:hover{
+    transform: translateX(6px);
+    background: rgba(255,255,255,0.08);
 }
 
 .side-bar .navbar a{
@@ -332,13 +390,28 @@ section{
 }
 
 .side-bar .navbar a i{
-    color: var(--main--color);
+    color: var(--white);
     margin-right: 1.5rem;
     transition: .2s linear;
 }
 
 .side-bar .navbar a span{
-    color: var(--light-color);
+    color: rgba(255,255,255,0.95);
+}
+
+/* Styled scrollbar for sidebar navbar */
+.side-bar .navbar::-webkit-scrollbar{
+    width: .8rem;
+}
+.side-bar .navbar::-webkit-scrollbar-track{
+    background: transparent;
+}
+.side-bar .navbar::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,0.12);
+    border-radius: 1rem;
+}
+.side-bar .navbar::-webkit-scrollbar-thumb:hover{
+    background: rgba(255,255,255,0.18);
 }
 
 .side-bar .navbar a:hover i{
@@ -355,6 +428,20 @@ section{
     max-width:36rem;
     margin:1.8rem auto;
     padding:0 1.2rem 2.4rem;
+    background: transparent;
+    min-height: calc(100vh - 8rem);
+}
+
+/* Make header and sidebar friendly on smaller screens while keeping bobbly look */
+@media (max-width: 991px){
+    .header{border-bottom-left-radius:1.6rem;border-bottom-right-radius:1.6rem}
+    .side-bar{width:24rem}
+    .side-bar .navbar{max-height: calc(100vh - 16rem)}
+}
+
+@media (max-width: 768px){
+    .side-bar{width:22rem}
+    .header::after{display:none}
 }
 
 .dashboard-title{
@@ -442,7 +529,8 @@ section{
     justify-content: space-between;
     gap: 1rem;
     box-shadow: 0 .6rem 1.2rem rgba(16,24,40,0.04);
-    width: 500px;
+    width: auto;
+    max-width:32rem;
     margin-bottom: 3rem;
 }
 .submission-info{
