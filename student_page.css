@@ -138,8 +138,8 @@ section{
 
 /* Bobbly header styling */
 .header{
-    border-bottom-left-radius: 2.4rem;
     border-bottom-right-radius: 2.4rem;
+    border-bottom-left-radius: 0;
     box-shadow: 0 .8rem 2rem rgba(37,99,235,0.12), inset 0 -.6rem 1rem rgba(0,0,0,0.04);
 }
 
@@ -328,9 +328,24 @@ section{
     width: 30rem;
     background-color: var(--main--color);
     border-right: .05rem solid rgba(255,255,255,0.06);
-    border-top-right-radius: 2.6rem;
+    border-top-right-radius: 0;
     border-bottom-right-radius: 2.6rem;
     box-shadow: 0 .8rem 2rem rgba(37,99,235,0.08), inset .6rem 0 1.2rem rgba(0,0,0,0.02);
+    overflow-y: auto;
+}
+/* Sidebar scrollbar styles */
+.side-bar::-webkit-scrollbar {
+    width: .8rem;
+}
+.side-bar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.side-bar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.12);
+    border-radius: 1rem;
+}
+.side-bar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.18);
 }
 
 .side-bar .profile{
