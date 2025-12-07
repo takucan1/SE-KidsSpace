@@ -94,50 +94,12 @@
             </div>
         <?php else: ?>
             <?php foreach ($enrolledCourses as $course): ?>
-                <div class="accordion-item" onclick="toggleAccordion(this)">
-                    <span><?php echo htmlspecialchars($course['name']); ?></span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p><strong>Teacher:</strong> <?php echo htmlspecialchars($course['teacher_email'] ?? '—'); ?></p>
-                    <p><strong>Description:</strong> <?php echo htmlspecialchars($course['description'] ?? 'No description'); ?></p>
-                    <p><strong>Enrolled:</strong> <?php
-                        // find enrollment time if available
-                        $enrollments = getEnrollments();
-                        $enrolledAt = '';
-                        foreach ($enrollments as $en) {
-                            if ($en['course_id'] === $course['id'] && $en['student_email'] === $studentEmail) {
-                                $enrolledAt = $en['enrolled_at'];
-                                break;
-                            }
-                        }
-                        echo $enrolledAt ? htmlspecialchars($enrolledAt) : '—';
-                    ?></p>
-                    <div class="lessons-list">
-                        <h3>Lessons</h3>
-                        <?php $lessons = getLessonsByCourse($course['id']); ?>
-                        <?php if (empty($lessons)) : ?>
-                            <p>No lessons have been uploaded yet.</p>
-                        <?php else: ?>
-                            <?php foreach ($lessons as $lesson) : ?>
-                                <div class="lesson-item">
-                                    <div class="lesson-info">
-                                        <h4><?php echo htmlspecialchars($lesson['title']); ?></h4>
-                                        <p><?php echo htmlspecialchars($lesson['description'] ?? ''); ?></p>
-                                        <small><i class="fas fa-file-pdf"></i>
-                                            <?php echo isset($lesson['file_size']) ? round($lesson['file_size']/1024/1024,2) . 'MB' : ''; ?> • <?php echo htmlspecialchars($lesson['created_at'] ?? ''); ?>
-                                        </small>
-                                    </div>
-                                    <div class="submission-actions">
-                                        <?php if (!empty($lesson['file_name'])): ?>
-                                            <a class="btn" href="<?php echo '../uploads/lessons/' . rawurlencode($lesson['file_name']); ?>" target="_blank" rel="noopener">View / Download</a>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                <a href="enrolled_course.php?course_id=<?php echo urlencode($course['id']); ?>" class="course-link">
+                    <div class="accordion-item">
+                        <span><?php echo htmlspecialchars($course['name']); ?></span>
+                        <i class="fas fa-arrow-right"></i>
                     </div>
-                </div>
+                </a>
             <?php endforeach; ?>
         <?php endif; ?>
     </div>

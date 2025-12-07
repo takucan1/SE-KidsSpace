@@ -68,6 +68,10 @@ body{
     min-height:100vh;
 }
 
+body.sidebar-active{
+    padding-left: 30rem;
+}
+
 img{
     height: 10rem;
     width: 10rem;
@@ -472,8 +476,11 @@ section{
     .side-bar .navbar{max-height: calc(100vh - 16rem)}
 }
 
-@media (max-width: 768px){
-    .side-bar{width:22rem}
+@media (max-width:768px){
+    .side-bar{width:22rem; display: none;}
+    .side-bar.active{display: block;}
+    body{padding-left: 0;}
+    body.sidebar-active{padding-left: 22rem;}
     .header::after{display:none}
 }
 

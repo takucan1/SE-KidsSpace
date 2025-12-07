@@ -33,6 +33,14 @@ function getAnnouncementDataFile() {
     return $dir . '/announcements.json';
 }
 
+function getTeachersDataFile() {
+    $dir = dirname(__DIR__) . '/data';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    return $dir . '/teachers.json';
+}
+
 function getAllCourses() {
     $file = getCourseDataFile();
     if (!file_exists($file)) {
@@ -199,5 +207,19 @@ function saveAnnouncement($announcement) {
     }
     $announcements[] = $announcement;
     return file_put_contents($file, json_encode($announcements, JSON_PRETTY_PRINT));
+}
+
+function getTeacherNameByEmail($email) {
+    $file = getTeachersDataFile();
+    if (!file_exists($file)) {
+        return null;
+    }
+    $teachers = json_decode(file_get_contents($file), true) ?: [];
+    foreach ($teachers as $teacher) {
+        if ($teacher['email'] === $email) {
+            return $teacher['name'];
+        }
+    }
+    return null;
 }
 ?>
