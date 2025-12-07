@@ -12,5 +12,12 @@
         "description": "math",
         "teacher_email": "dave@gmail.com",
         "created_at": "2025-12-07 16:10:58"
+    },
+    {
+        "id": "course_6935b710cf4148.15880888",
+        "name": "Filipino",
+        "description": "Fill",
+        "teacher_email": "josh@gmail.com",
+        "created_at": "2025-12-07 18:19:12"
     }
 ]
