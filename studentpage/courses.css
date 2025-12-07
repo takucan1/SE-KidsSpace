@@ -630,6 +630,104 @@ img{
 .submission-item[tabindex]{cursor:pointer}
 .submission-item:focus{box-shadow:0 0 0 .2rem rgba(108,99,255,0.15)}
 
+/* LMS Accordion Styles */
+.accordion {
+    margin-bottom: 1.2rem;
+}
+
+.accordion-item {
+    background: var(--main--color);
+    color: #fff;
+    padding: 1.2rem 1.4rem;
+    border-radius: .4rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 .1rem 0 rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.accordion-item:hover {
+    background: var(--main-dark);
+}
+
+.accordion-item span {
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.accordion-item i {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f9f9f9;
+    border-radius: 0 0 .4rem .4rem;
+    margin-bottom: 1.2rem;
+    padding: 0 1.4rem;
+    box-shadow: 0 .1rem 0 rgba(0,0,0,0.05);
+}
+
+.accordion-content.open {
+    max-height: 500px; /* Adjust based on content */
+    padding: 1.4rem;
+}
+
+.lessons-list {
+    margin-top: 1rem;
+}
+
+.lesson-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: .4rem;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 .1rem 0.2rem rgba(0,0,0,0.1);
+}
+
+.lesson-info h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--black);
+    font-size: 1.6rem;
+}
+
+.lesson-info p {
+    margin: 0 0 0.5rem 0;
+    color: var(--light-color);
+}
+
+.lesson-info small {
+    color: var(--light-color);
+    font-size: 1.2rem;
+}
+
+.submission-actions .btn {
+    background: var(--main--color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: .4rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+.submission-actions .btn:hover {
+    background: var(--main-dark);
+}
+
 
 
 

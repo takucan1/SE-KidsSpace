@@ -66,60 +66,88 @@
     </div>
 
     <nav class="navbar">
-        <a href="studentpage/student_page.php"><i class="fas fa-home"></i><span>Home</span></a>
-        <a href="studentpage/about_us.html"><i class="fas fa-question"></i><span>About us</span></a>
-        <a href="studentpage/courses.html"><i class="fas fa-book"></i><span>Courses</span></a>
-        <a href="studentpage/teachers.html"><i class="fas fa-chalkboard-teacher"></i><span>Teachers</span></a>
-        <a href="studentpage/contact.html"><i class="fas fa-headset"></i><span>Contact us</span></a>
-        <a href="../logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+        <a href="student_page.php"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="about_us.html"><i class="fas fa-question"></i><span>About us</span></a>
+        <a href="courses.php"><i class="fas fa-book"></i><span>Courses</span></a>
+        <a href="teachers.html"><i class="fas fa-chalkboard-teacher"></i><span>Teachers</span></a>
+        <a href="contact.html"><i class="fas fa-headset"></i><span>Contact us</span></a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
     </nav>
 </div>
 
 <!-- End of Side Bar Section -->
 
-<!-- Dashboard: Upcoming submissions outline -->
+<!-- Student Enrolled Courses -->
+<?php
+    // Load course utilities and show enrolled courses for logged-in student
+    require_once __DIR__ . '/../data/courses_data.php';
+    $studentEmail = $_SESSION['email'];
+    $enrolledCourses = getStudentCourses($studentEmail);
+?>
 <div class="dashboard-container">
-    <h1 class="dashboard-title">Courses</h1>
-
-    <div class="submissions-list">
-        <!-- Placeholder items; replace with dynamic content later -->
-        <div class="submission-item" tabindex="0">
-            <div class="submission-info">
-                <h3 class="submission-title">[Assignment Title]</h3>
-                <p class="submission-meta"><strong>Course:</strong> [Course Name] &nbsp;•&nbsp; <strong>Due:</strong> [YYYY-MM-DD HH:MM]</p>
-                <div class="submission-details">
-                    <p class="details-text">Brief description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Include submission instructions, file types accepted, and any rubric notes here.</p>
-                    <p class="details-extra"><strong>Attachments:</strong> syllabus.pdf, resources.zip</p>
+    <h1 class="dashboard-title">My Courses</h1>
+    <div class="accordion">
+        <?php if (empty($enrolledCourses)) : ?>
+            <div class="no-data">
+                <i class="fas fa-book-reader"></i>
+                <p>You are not enrolled in any courses yet. Visit the <a href="../view_courses.php">Courses</a> page to browse available classes.</p>
+            </div>
+        <?php else: ?>
+            <?php foreach ($enrolledCourses as $course): ?>
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <span><?php echo htmlspecialchars($course['name']); ?></span>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-            </div>
-            <div class="submission-actions">
-                <a href="#" class="btn">View</a>
-            </div>
-        </div>
-
-        <div class="submission-item" tabindex="0">
-            <div class="submission-info">
-                <h3 class="submission-title">[Assignment Title]</h3>
-                <p class="submission-meta"><strong>Course:</strong> [Course Name] &nbsp;•&nbsp; <strong>Due:</strong> [YYYY-MM-DD HH:MM]</p>
-                <div class="submission-details">
-                    <p class="details-text">Brief description: Add details for this assignment. Include steps to submit and any notes about late penalties.</p>
-                    <p class="details-extra"><strong>Attachments:</strong> handout.docx</p>
+                <div class="accordion-content">
+                    <p><strong>Teacher:</strong> <?php echo htmlspecialchars($course['teacher_email'] ?? '—'); ?></p>
+                    <p><strong>Description:</strong> <?php echo htmlspecialchars($course['description'] ?? 'No description'); ?></p>
+                    <p><strong>Enrolled:</strong> <?php
+                        // find enrollment time if available
+                        $enrollments = getEnrollments();
+                        $enrolledAt = '';
+                        foreach ($enrollments as $en) {
+                            if ($en['course_id'] === $course['id'] && $en['student_email'] === $studentEmail) {
+                                $enrolledAt = $en['enrolled_at'];
+                                break;
+                            }
+                        }
+                        echo $enrolledAt ? htmlspecialchars($enrolledAt) : '—';
+                    ?></p>
+                    <div class="lessons-list">
+                        <h3>Lessons</h3>
+                        <?php $lessons = getLessonsByCourse($course['id']); ?>
+                        <?php if (empty($lessons)) : ?>
+                            <p>No lessons have been uploaded yet.</p>
+                        <?php else: ?>
+                            <?php foreach ($lessons as $lesson) : ?>
+                                <div class="lesson-item">
+                                    <div class="lesson-info">
+                                        <h4><?php echo htmlspecialchars($lesson['title']); ?></h4>
+                                        <p><?php echo htmlspecialchars($lesson['description'] ?? ''); ?></p>
+                                        <small><i class="fas fa-file-pdf"></i>
+                                            <?php echo isset($lesson['file_size']) ? round($lesson['file_size']/1024/1024,2) . 'MB' : ''; ?> • <?php echo htmlspecialchars($lesson['created_at'] ?? ''); ?>
+                                        </small>
+                                    </div>
+                                    <div class="submission-actions">
+                                        <?php if (!empty($lesson['file_name'])): ?>
+                                            <a class="btn" href="<?php echo '../uploads/lessons/' . rawurlencode($lesson['file_name']); ?>" target="_blank" rel="noopener">View / Download</a>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
-            <div class="submission-actions">
-                <a href="#" class="btn">View</a>
-            </div>
-        </div>
-
-        <div class="no-more">Show more submissions below or load dynamically.</div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
-
-    <div class="footer-version">Version 1.3.1</div>
+    <div class="footer-version">&nbsp;</div>
 </div>
 
 
 <script src="script.js"></script>
 <script src="student_profile.js"></script>
+<script src="courses.js"></script>
     
 </body>
 </html>

@@ -18,5 +18,15 @@
         "teacher_email": "dave@gmail.com",
         "created_at": "2025-12-07 16:19:16",
         "file_size": 528978
+    },
+    {
+        "id": "lesson_6935a14e47fc97.13039742",
+        "course_id": "course_6935906ca746b2.81790171",
+        "title": "another science",
+        "description": "science",
+        "file_name": "lesson_6935a14e47b817.02374037.pdf",
+        "teacher_email": "josh@gmail.com",
+        "created_at": "2025-12-07 16:46:22",
+        "file_size": 97905
     }
 ]
