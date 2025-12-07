@@ -17,6 +17,22 @@ function getLessonDataFile() {
     return $dir . '/lessons.json';
 }
 
+function getActivityDataFile() {
+    $dir = dirname(__DIR__) . '/data';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    return $dir . '/activities.json';
+}
+
+function getAnnouncementDataFile() {
+    $dir = dirname(__DIR__) . '/data';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    return $dir . '/announcements.json';
+}
+
 function getAllCourses() {
     $file = getCourseDataFile();
     if (!file_exists($file)) {
@@ -141,5 +157,47 @@ function removeStudentFromCourse($course_id, $student_email) {
         return !($e['course_id'] === $course_id && $e['student_email'] === $student_email);
     });
     return file_put_contents(getEnrollmentDataFile(), json_encode(array_values($enrollments), JSON_PRETTY_PRINT));
+}
+
+function getActivitiesByCourse($course_id) {
+    $file = getActivityDataFile();
+    if (!file_exists($file)) {
+        return [];
+    }
+    $activities = json_decode(file_get_contents($file), true) ?: [];
+    return array_filter($activities, function($activity) use ($course_id) {
+        return $activity['course_id'] === $course_id;
+    });
+}
+
+function saveActivity($activity) {
+    $activities = [];
+    $file = getActivityDataFile();
+    if (file_exists($file)) {
+        $activities = json_decode(file_get_contents($file), true) ?: [];
+    }
+    $activities[] = $activity;
+    return file_put_contents($file, json_encode($activities, JSON_PRETTY_PRINT));
+}
+
+function getAnnouncementsByCourse($course_id) {
+    $file = getAnnouncementDataFile();
+    if (!file_exists($file)) {
+        return [];
+    }
+    $announcements = json_decode(file_get_contents($file), true) ?: [];
+    return array_filter($announcements, function($announcement) use ($course_id) {
+        return $announcement['course_id'] === $course_id;
+    });
+}
+
+function saveAnnouncement($announcement) {
+    $announcements = [];
+    $file = getAnnouncementDataFile();
+    if (file_exists($file)) {
+        $announcements = json_decode(file_get_contents($file), true) ?: [];
+    }
+    $announcements[] = $announcement;
+    return file_put_contents($file, json_encode($announcements, JSON_PRETTY_PRINT));
 }
 ?>
