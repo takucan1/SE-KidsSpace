@@ -3,8 +3,9 @@
 *:root{
     --main--color:#3b82f6;
     --main-dark:#2563eb;
-    --gradient-start:#4dd2ff;
-    --gradient-end:#ffffff;
+    --gradient-start:#8EE7FF;
+    --gradient-middle:#A5EECF;
+    --gradient-end:#F6D27F;
     --red:#c0392b;
     --orange:#FFD42A;             
     --white:#ffffff;
@@ -180,15 +181,15 @@ section{
 }
 
 .header .flex .logo{
-    font-size: 2.5rem;
-    color: var(--white);
-    font-weight: bolder;
-    font-style: italic;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffb301;
+    font-family: cursive;
 }
 
 .header .flex .search-form{
     width: 50rem;
-    border-radius: .5rem;
+    border-radius: 2.5rem;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -335,7 +336,6 @@ section{
         font-size: 50%;
     }
 }
-
 .side-bar{
     position: fixed;
     top: 0; left: 0;
@@ -345,10 +345,9 @@ section{
     border-right: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 2.6rem;
-    box-shadow: 0 .8rem 2rem rgba(37,99,235,0.08), inset .6rem 0 1.2rem rgba(0,0,0,0.02);
+    box-shadow: 0 .8rem 2rem rgba(0, 17, 50, 0.08), inset .6rem 0 1.2rem rgba(7, 6, 6, 0.02);
     overflow-y: auto;
 }
-/* Sidebar scrollbar styles */
 .side-bar::-webkit-scrollbar {
     width: .8rem;
 }
@@ -402,17 +401,20 @@ section{
 /* Make navbar links more pill-like (bobbly) */
 .side-bar .navbar a{
     display: block;
-    padding: 1.2rem 1.6rem;
-    margin: .6rem 0;
+    padding: 2rem;
+    margin: .5rem 0;
     font-size: 1.8rem;
     border-radius: 1.6rem;
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.04);  
     transition: transform .14s ease, background .14s ease;
+    
 }
-
-.side-bar .navbar a:hover{
-    transform: translateX(6px);
-    background: rgba(255,255,255,0.08);
+.side-bar .navbar a {
+    border: 2px solid #fff; /* thickness + color */
+    border-radius: 10px;     /* optional — for rounded corners */
+    padding: 10px;          
+    display: block;         
+    margin-bottom: 10px;    
 }
 
 .side-bar .navbar a{
@@ -427,9 +429,22 @@ section{
     margin-right: 1.5rem;
     transition: .2s linear;
 }
-
 .side-bar .navbar a span{
-    color: rgba(255,255,255,0.95);
+    color: rgba(251, 250, 250, 0.95);
+}
+
+.side-bar .navbar a:hover{
+    transform: translateX(6px);
+    background-color: white;
+    border: 2px solid var(--main-dark); /* thickness + color */
+    border-radius: 10px;     /* optional — for rounded corners */
+    display: block;         /* ensures the box wraps entire row */
+}
+.side-bar .navbar a:hover span{
+    color: var(--main--color);
+}
+.side-bar .navbar a:hover i{
+    color: var(--main--color);
 }
 
 /* Styled scrollbar for sidebar navbar */
@@ -452,10 +467,6 @@ section{
 }
 
 
-
-
-
-
 /* Dashboard styles (moved from inline in student_page.php) */
 .dashboard-container{
     max-width:36rem;
@@ -467,13 +478,16 @@ section{
 
 /* Make header and sidebar friendly on smaller screens while keeping bobbly look */
 @media (max-width: 991px){
-    .header{border-bottom-left-radius:1.6rem;border-bottom-right-radius:1.6rem}
+    .header{border-bottom-left-radius:1.6rem;border: bottom right radius 1.6rem;}
     .side-bar{width:24rem}
     .side-bar .navbar{max-height: calc(100vh - 16rem)}
 }
 
-@media (max-width: 768px){
-    .side-bar{width:22rem}
+@media (max-width:768px){
+    .side-bar{width:22rem; display: none;}
+    .side-bar.active{display: block;}
+    body{padding-left: 0;}
+    body.sidebar-active{padding-left: 22rem;}
     .header::after{display:none}
 }
 
@@ -484,11 +498,11 @@ section{
 .header .flex .profile,
 .side-bar,
 .side-bar .profile,
-.side-bar .navbar a,
 .submission-item img,
 img{
-    border-radius: 0 !important;
+    border-radius: 0px !important;
 }
+
 
 /* ensure header decorative bubble not visible when radii removed */
 .header::after{display:none !important}
@@ -497,7 +511,11 @@ img{
     font-size:3rem;
     font-weight:900;
     margin:0.6rem 0 1.4rem;
-    background:linear-gradient(90deg,#8ef6c1,#4dd2ff);
+    background:linear-gradient(#fdf700, /* yellow */
+      #ffb347, /* orange */
+      #f78fb3, /* pink */
+      #a29bfe  /* purple */
+  );
     -webkit-background-clip:text;
     background-clip:text;
     -webkit-text-fill-color:transparent;
@@ -629,6 +647,10 @@ img{
 
 .submission-item[tabindex]{cursor:pointer}
 .submission-item:focus{box-shadow:0 0 0 .2rem rgba(108,99,255,0.15)}
+.take-quiz-btn {
+    margin-top: -10px; /* move up a little */
+}
+
 
 
 
