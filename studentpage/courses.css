@@ -3,8 +3,9 @@
 *:root{
     --main--color:#3b82f6;
     --main-dark:#2563eb;
-    --gradient-start:#4dd2ff;
-    --gradient-end:#ffffff;
+    --gradient-start:#8EE7FF;
+    --gradient-middle:#A5EECF;
+    --gradient-end:#F6D27F;
     --red:#c0392b;
     --orange:#FFD42A;             
     --white:#ffffff;
@@ -54,7 +55,7 @@ body.dark{
 }
 
 *::-webkit-scrollbar-thumb{
-    background-color:var(--main--color);
+    background-color:rgb(57, 135, 165);
 }
 
 html{
@@ -184,15 +185,15 @@ section{
 }
 
 .header .flex .logo{
-    font-size: 2.5rem;
-    color: var(--white);
-    font-weight: bolder;
-    font-style: italic;
+font-size: 30px;
+    font-weight: bold;
+    color: #ffb301;
+    font-family: cursive;
 }
 
 .header .flex .search-form{
     width: 50rem;
-    border-radius: .5rem;
+    border-radius: 2.5rem;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -212,7 +213,7 @@ section{
     font-size: 2rem;
     color: var(--white);
     cursor: pointer;
-    background: none;
+    background: none;   
 }
 
 .header .flex .search-form button:hover{
@@ -349,10 +350,9 @@ section{
     border-right: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 2.6rem;
-    box-shadow: 0 .8rem 2rem rgba(37,99,235,0.08), inset .6rem 0 1.2rem rgba(0,0,0,0.02);
+    box-shadow: 0 .8rem 2rem rgba(0, 17, 50, 0.08), inset .6rem 0 1.2rem rgba(7, 6, 6, 0.02);
     overflow-y: auto;
 }
-/* Sidebar scrollbar styles */
 .side-bar::-webkit-scrollbar {
     width: .8rem;
 }
@@ -365,7 +365,7 @@ section{
 }
 .side-bar::-webkit-scrollbar-thumb:hover {
     background: rgba(255,255,255,0.18);
-}
+}   
 
 .side-bar .profile{
     padding: 3rem 2rem;
@@ -387,7 +387,7 @@ section{
 }
 
 .side-bar .profile span{
-    color: rgba(255,255,255,0.9);
+    color: rgba(130, 230, 128, 0.9);
     font-size: 1.6rem;
 }
 
@@ -406,18 +406,23 @@ section{
 /* Make navbar links more pill-like (bobbly) */
 .side-bar .navbar a{
     display: block;
-    padding: 1.2rem 1.6rem;
-    margin: .6rem 0;
+    padding: 2rem;
+    margin: .5rem 0;
     font-size: 1.8rem;
     border-radius: 1.6rem;
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.04);  
     transition: transform .14s ease, background .14s ease;
+    
+}
+.side-bar .navbar a {
+    border: 2px solid #fff; /* thickness + color */
+    border-radius: 10px;     /* optional — for rounded corners */
+    padding: 10px;          
+    display: block;         
+    margin-bottom: 10px;    
 }
 
-.side-bar .navbar a:hover{
-    transform: translateX(6px);
-    background: rgba(255,255,255,0.08);
-}
+
 
 .side-bar .navbar a{
     display: block;
@@ -431,9 +436,23 @@ section{
     margin-right: 1.5rem;
     transition: .2s linear;
 }
-
 .side-bar .navbar a span{
-    color: rgba(255,255,255,0.95);
+    color: rgba(251, 250, 250, 0.95);
+}
+
+.side-bar .navbar a:hover{
+    color: var(--main--color);
+    transform: translateX(6px);
+    background-color: white;
+    border: 2px solid var(--main-dark); /* thickness + color */
+    border-radius: 10px;     /* optional — for rounded corners */
+    display: block;         /* ensures the box wraps entire row */
+}
+.side-bar .navbar a:hover span{
+    color: var(--main--color);
+}
+.side-bar .navbar a:hover i{
+    color: var(--main--color);
 }
 
 /* Styled scrollbar for sidebar navbar */
@@ -471,7 +490,7 @@ section{
 
 /* Make header and sidebar friendly on smaller screens while keeping bobbly look */
 @media (max-width: 991px){
-    .header{border-bottom-left-radius:1.6rem;border-bottom-right-radius:1.6rem}
+    .header{border-bottom-left-radius:1.6rem;border: bottom right radius 1.6rem;}
     .side-bar{width:24rem}
     .side-bar .navbar{max-height: calc(100vh - 16rem)}
 }
@@ -491,10 +510,9 @@ section{
 .header .flex .profile,
 .side-bar,
 .side-bar .profile,
-.side-bar .navbar a,
 .submission-item img,
 img{
-    border-radius: 0 !important;
+    border-radius: 0px !important;
 }
 
 /* ensure header decorative bubble not visible when radii removed */
@@ -504,12 +522,18 @@ img{
     font-size:3rem;
     font-weight:900;
     margin:0.6rem 0 1.4rem;
-    background:linear-gradient(90deg,#8ef6c1,#4dd2ff);
+    background:linear-gradient(#fdf700, /* yellow */
+      #ffb347, /* orange */
+      #f78fb3, /* pink */
+      #a29bfe  /* purple */
+  );
     -webkit-background-clip:text;
     background-clip:text;
     -webkit-text-fill-color:transparent;
     color:transparent;
     text-shadow:0 .2rem 0 rgba(0,0,0,0.05);
+    color: #fff;
+    font-weight: 700;
 }
 
 .accordion{
@@ -524,7 +548,7 @@ img{
     border-radius:.4rem;
     margin-bottom:1.2rem;
     display:flex;
-    justify-content:space-between;
+    justify-content:space-betw  een;
     align-items:center;
     box-shadow:0 .1rem 0 rgba(0,0,0,0.05);
 }
