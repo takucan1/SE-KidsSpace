@@ -25,6 +25,22 @@ function getActivityDataFile() {
     return $dir . '/activities.json';
 }
 
+function getQuizDataFile() {
+    $dir = dirname(__DIR__) . '/data';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    return $dir . '/quizzes.json';
+}
+
+function getQuizSubmissionDataFile() {
+    $dir = dirname(__DIR__) . '/data';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    return $dir . '/quiz_submissions.json';
+}
+
 function getAnnouncementDataFile() {
     $dir = dirname(__DIR__) . '/data';
     if (!is_dir($dir)) {
@@ -221,5 +237,55 @@ function getTeacherNameByEmail($email) {
         }
     }
     return null;
+}
+
+function getQuizzesByCourse($course_id) {
+    $file = getQuizDataFile();
+    if (!file_exists($file)) {
+        return [];
+    }
+    $quizzes = json_decode(file_get_contents($file), true) ?: [];
+    return array_filter($quizzes, function($quiz) use ($course_id) {
+        return $quiz['course_id'] === $course_id;
+    });
+}
+
+function saveQuiz($quiz) {
+    $quizzes = [];
+    $file = getQuizDataFile();
+    if (file_exists($file)) {
+        $quizzes = json_decode(file_get_contents($file), true) ?: [];
+    }
+    $quizzes[] = $quiz;
+    return file_put_contents($file, json_encode($quizzes, JSON_PRETTY_PRINT));
+}
+
+function getAllQuizzes() {
+    $file = getQuizDataFile();
+    if (!file_exists($file)) {
+        return [];
+    }
+    return json_decode(file_get_contents($file), true) ?: [];
+}
+
+function getQuizSubmissions($quiz_id) {
+    $file = getQuizSubmissionDataFile();
+    if (!file_exists($file)) {
+        return [];
+    }
+    $submissions = json_decode(file_get_contents($file), true) ?: [];
+    return array_filter($submissions, function($submission) use ($quiz_id) {
+        return $submission['quiz_id'] === $quiz_id;
+    });
+}
+
+function saveQuizSubmission($submission) {
+    $submissions = [];
+    $file = getQuizSubmissionDataFile();
+    if (file_exists($file)) {
+        $submissions = json_decode(file_get_contents($file), true) ?: [];
+    }
+    $submissions[] = $submission;
+    return file_put_contents($file, json_encode($submissions, JSON_PRETTY_PRINT));
 }
 ?>

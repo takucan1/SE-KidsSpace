@@ -189,6 +189,54 @@
                 </form>
             </div>
         </div>
+
+        <!-- CREATE QUIZ MODAL -->
+        <div class="modal" id="createQuizModal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeCreateQuizModal()">×</button>
+                <h3 class="modal-header">Create Quiz</h3>
+                <div class="status-msg" id="quizStatus"></div>
+                <form id="createQuizForm">
+                    <input type="hidden" id="quizCourseId">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="quizTitle">Quiz Title:</label>
+                            <input type="text" id="quizTitle" placeholder="Enter quiz title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quizDesc">Quiz Description:</label>
+                            <textarea id="quizDesc" placeholder="Enter quiz description..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Questions:</label>
+                            <div id="questionsContainer">
+                                <div class="question-item" data-index="0">
+                                    <input type="text" class="question-text" placeholder="Question 1" required>
+                                    <div class="options">
+                                        <input type="text" class="option" placeholder="Option A" required>
+                                        <input type="text" class="option" placeholder="Option B" required>
+                                        <input type="text" class="option" placeholder="Option C" required>
+                                        <input type="text" class="option" placeholder="Option D" required>
+                                    </div>
+                                    <select class="correct-answer" required>
+                                        <option value="">Select Correct Answer</option>
+                                        <option value="0">A</option>
+                                        <option value="1">B</option>
+                                        <option value="2">C</option>
+                                        <option value="3">D</option>
+                                    </select>
+                                    <button type="button" class="btn btn-danger remove-question" onclick="removeQuestion(this)">Remove</button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary" onclick="addQuestion()">Add Question</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">
+                        <i class="fas fa-plus"></i> Create Quiz
+                    </button>
+                </form>
+            </div>
+        </div>
     </main>
 
 
@@ -321,6 +369,12 @@
                             <button class="btn btn-secondary" onclick="viewLessons('${course.id}', '${course.name}')">
                                 <i class="fas fa-list"></i> View Lessons
                             </button>
+                            <button class="btn btn-secondary" onclick="openCreateQuizModal('${course.id}')">
+                                <i class="fas fa-plus-circle"></i> Create Quiz
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewQuizzes('${course.id}')">
+                                <i class="fas fa-question-circle"></i> View Quizzes
+                            </button>
                             <button class="btn btn-secondary" onclick="openEnrollModal('${course.id}')">
                                 <i class="fas fa-user-plus"></i> Enroll Student
                             </button>
@@ -332,6 +386,7 @@
                             </button>
                         </div>
                         <div id="lessons-${course.id}" class="lessons-list" style="margin-top: 1rem; display: none;"></div>
+                        <div id="quizzes-${course.id}" class="lessons-list" style="margin-top: 1rem; display: none;"></div>
                         <div id="students-${course.id}" class="students-list" style="margin-top: 1rem; display: none;"></div>
                     </div>
                 `).join('');
@@ -587,6 +642,177 @@
         // Close registered students modal when clicking outside
         document.getElementById('registeredStudentsModal').addEventListener('click', (e) => {
             if (e.target.id === 'registeredStudentsModal') closeRegisteredStudentsModal();
+        });
+
+        // Quiz Functions
+        function openCreateQuizModal(courseId) {
+            document.getElementById('quizCourseId').value = courseId;
+            document.getElementById('createQuizModal').classList.add('show');
+        }
+
+        function closeCreateQuizModal() {
+            document.getElementById('createQuizModal').classList.remove('show');
+            document.getElementById('createQuizForm').reset();
+            document.getElementById('quizStatus').classList.remove('show');
+            // Reset questions container to one question
+            document.getElementById('questionsContainer').innerHTML = `
+                <div class="question-item" data-index="0">
+                    <input type="text" class="question-text" placeholder="Question 1" required>
+                    <div class="options">
+                        <input type="text" class="option" placeholder="Option A" required>
+                        <input type="text" class="option" placeholder="Option B" required>
+                        <input type="text" class="option" placeholder="Option C" required>
+                        <input type="text" class="option" placeholder="Option D" required>
+                    </div>
+                    <select class="correct-answer" required>
+                        <option value="">Select Correct Answer</option>
+                        <option value="0">A</option>
+                        <option value="1">B</option>
+                        <option value="2">C</option>
+                        <option value="3">D</option>
+                    </select>
+                    <button type="button" class="btn btn-danger remove-question" onclick="removeQuestion(this)">Remove</button>
+                </div>
+            `;
+        }
+
+        function addQuestion() {
+            const container = document.getElementById('questionsContainer');
+            const questionCount = container.children.length;
+            const questionItem = document.createElement('div');
+            questionItem.className = 'question-item';
+            questionItem.setAttribute('data-index', questionCount);
+            questionItem.innerHTML = `
+                <input type="text" class="question-text" placeholder="Question ${questionCount + 1}" required>
+                <div class="options">
+                    <input type="text" class="option" placeholder="Option A" required>
+                    <input type="text" class="option" placeholder="Option B" required>
+                    <input type="text" class="option" placeholder="Option C" required>
+                    <input type="text" class="option" placeholder="Option D" required>
+                </div>
+                <select class="correct-answer" required>
+                    <option value="">Select Correct Answer</option>
+                    <option value="0">A</option>
+                    <option value="1">B</option>
+                    <option value="2">C</option>
+                    <option value="3">D</option>
+                </select>
+                <button type="button" class="btn btn-danger remove-question" onclick="removeQuestion(this)">Remove</button>
+            `;
+            container.appendChild(questionItem);
+        }
+
+        function removeQuestion(button) {
+            const container = document.getElementById('questionsContainer');
+            if (container.children.length > 1) {
+                button.parentElement.remove();
+            }
+        }
+
+        // Create Quiz Form
+        document.getElementById('createQuizForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const statusDiv = document.getElementById('quizStatus');
+            
+            const questions = [];
+            const questionItems = document.querySelectorAll('.question-item');
+            
+            questionItems.forEach((item, index) => {
+                const questionText = item.querySelector('.question-text').value;
+                const options = Array.from(item.querySelectorAll('.option')).map(opt => opt.value);
+                const correctAnswer = parseInt(item.querySelector('.correct-answer').value);
+                
+                questions.push({
+                    question: questionText,
+                    options: options,
+                    correct_answer: correctAnswer
+                });
+            });
+
+            const formData = new FormData();
+            formData.append('action', 'create_quiz');
+            formData.append('course_id', document.getElementById('quizCourseId').value);
+            formData.append('quiz_title', document.getElementById('quizTitle').value);
+            formData.append('quiz_description', document.getElementById('quizDesc').value);
+            formData.append('questions', JSON.stringify(questions));
+
+            try {
+                const response = await fetch(API_URL, { method: 'POST', body: formData });
+                const result = await response.json();
+                
+                if (result.success) {
+                    showStatus(statusDiv, 'Quiz created successfully!', 'success');
+                    document.getElementById('createQuizForm').reset();
+                    setTimeout(() => closeCreateQuizModal(), 1500);
+                    loadCourses();
+                } else {
+                    showStatus(statusDiv, result.message || 'Failed to create quiz', 'error');
+                }
+            } catch (error) {
+                showStatus(statusDiv, 'Error: ' + error.message, 'error');
+            }
+        });
+
+        async function viewQuizzes(courseId) {
+            const quizzesDiv = document.getElementById(`quizzes-${courseId}`);
+            
+            if (quizzesDiv.style.display === 'block') {
+                quizzesDiv.style.display = 'none';
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}?action=get_quizzes&course_id=${courseId}`);
+                const result = await response.json();
+                
+                if (!result.quizzes || result.quizzes.length === 0) {
+                    quizzesDiv.innerHTML = '<p class="no-data">No quizzes created yet</p>';
+                } else {
+                    quizzesDiv.innerHTML = result.quizzes.map(quiz => `
+                        <div class="lesson-item">
+                            <div class="lesson-info">
+                                <h4>${quiz.title}</h4>
+                                <p>${quiz.description || 'No description'}</p>
+                                <small style="color: #999;"><i class="fas fa-question-circle"></i> ${quiz.questions_count} questions | ${new Date(quiz.created_at).toLocaleDateString()}</small>
+                            </div>
+                            <div class="lesson-actions">
+                                <button class="btn btn-secondary" onclick="viewQuizResults('${quiz.id}')">
+                                    <i class="fas fa-chart-bar"></i> View Results
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+                quizzesDiv.style.display = 'block';
+            } catch (error) {
+                quizzesDiv.innerHTML = '<p class="no-data">Error loading quizzes</p>';
+                quizzesDiv.style.display = 'block';
+            }
+        }
+
+        async function viewQuizResults(quizId) {
+            try {
+                const response = await fetch(`${API_URL}?action=get_quiz_results&quiz_id=${quizId}`);
+                const result = await response.json();
+                
+                if (!result.submissions || result.submissions.length === 0) {
+                    alert('No submissions yet for this quiz.');
+                    return;
+                }
+                
+                const resultsText = result.submissions.map(sub => 
+                    `${sub.student_email}: ${sub.score}/${sub.total_questions} (${(sub.score/sub.total_questions*100).toFixed(1)}%)`
+                ).join('\n');
+                
+                alert(`Quiz Results:\n\n${resultsText}`);
+            } catch (error) {
+                alert('Error loading quiz results: ' + error.message);
+            }
+        }
+
+        // Close quiz modal when clicking outside
+        document.getElementById('createQuizModal').addEventListener('click', (e) => {
+            if (e.target.id === 'createQuizModal') closeCreateQuizModal();
         });
     </script>
 </body>

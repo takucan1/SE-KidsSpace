@@ -77,41 +77,61 @@
 
 <!-- End of Side Bar Section -->
 
-<!-- Dashboard: Upcoming submissions outline -->
+<!-- Dashboard: Upcoming Quizzes -->
+<?php
+    // Load course utilities and get upcoming quizzes for enrolled courses
+    require_once __DIR__ . '/../data/courses_data.php';
+    $studentEmail = $_SESSION['email'];
+    $enrolledCourses = getStudentCourses($studentEmail);
+
+    $upcomingQuizzes = [];
+    foreach ($enrolledCourses as $course) {
+        $quizzes = getQuizzesByCourse($course['id']);
+        foreach ($quizzes as $quiz) {
+            // Check if student has already submitted this quiz
+            $submissions = getQuizSubmissions($quiz['id']);
+            $hasSubmitted = false;
+            foreach ($submissions as $sub) {
+                if ($sub['student_email'] === $studentEmail) {
+                    $hasSubmitted = true;
+                    break;
+                }
+            }
+            if (!$hasSubmitted) {
+                $upcomingQuizzes[] = [
+                    'quiz' => $quiz,
+                    'course' => $course
+                ];
+            }
+        }
+    }
+?>
 <div class="dashboard-container">
-    <h1 class="dashboard-title">Upcoming Submissions</h1>
+    <h1 class="dashboard-title">Upcoming Quizzes</h1>
 
     <div class="submissions-list">
-        <!-- Placeholder items; replace with dynamic content later -->
-        <div class="submission-item" tabindex="0">
-            <div class="submission-info">
-                <h3 class="submission-title">[Assignment Title]</h3>
-                <p class="submission-meta"><strong>Course:</strong> [Course Name] &nbsp;•&nbsp; <strong>Due:</strong> [YYYY-MM-DD HH:MM]</p>
-                <div class="submission-details">
-                    <p class="details-text">Brief description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Include submission instructions, file types accepted, and any rubric notes here.</p>
-                    <p class="details-extra"><strong>Attachments:</strong> syllabus.pdf, resources.zip</p>
+        <?php if (empty($upcomingQuizzes)) : ?>
+            <div class="no-data">
+                <i class="fas fa-check-circle"></i>
+                <p>No upcoming quizzes. Great job staying on top of your coursework!</p>
+            </div>
+        <?php else: ?>
+            <?php foreach ($upcomingQuizzes as $item) : ?>
+                <div class="submission-item" tabindex="0">
+                    <div class="submission-info">
+                        <h3 class="submission-title"><?php echo htmlspecialchars($item['quiz']['title']); ?></h3>
+                        <p class="submission-meta"><strong>Course:</strong> <?php echo htmlspecialchars($item['course']['name']); ?> &nbsp;•&nbsp; <strong>Created:</strong> <?php echo htmlspecialchars($item['quiz']['created_at'] ?? 'Recently'); ?></p>
+                        <div class="submission-details">
+                            <p class="details-text"><?php echo htmlspecialchars($item['quiz']['description'] ?? 'No description available'); ?></p>
+                            <p class="details-extra"><strong>Questions:</strong> <?php echo count($item['quiz']['questions']); ?> questions</p>
+                        </div>
+                    </div>
+                    <div class="submission-actions">
+                        <a href="take_quiz.php?quiz_id=<?php echo urlencode($item['quiz']['id']); ?>&course_id=<?php echo urlencode($item['course']['id']); ?>" class="btn">Take Quiz</a>
+                    </div>
                 </div>
-            </div>
-            <div class="submission-actions">
-                <a href="#" class="btn">View</a>
-            </div>
-        </div>
-
-        <div class="submission-item" tabindex="0">
-            <div class="submission-info">
-                <h3 class="submission-title">[Assignment Title]</h3>
-                <p class="submission-meta"><strong>Course:</strong> [Course Name] &nbsp;•&nbsp; <strong>Due:</strong> [YYYY-MM-DD HH:MM]</p>
-                <div class="submission-details">
-                    <p class="details-text">Brief description: Add details for this assignment. Include steps to submit and any notes about late penalties.</p>
-                    <p class="details-extra"><strong>Attachments:</strong> handout.docx</p>
-                </div>
-            </div>
-            <div class="submission-actions">
-                <a href="#" class="btn">View</a>
-            </div>
-        </div>
-
-        <div class="no-more">Show more submissions below or load dynamically.</div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 
     <div class="footer-version">Version 1.3.1</div>

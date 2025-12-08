@@ -155,24 +155,38 @@
         <?php endif; ?>
     </div>
 
-    <!-- Activities (Exams) Section -->
+    <!-- Quizzes Section -->
     <div class="section">
-        <h2>Exams</h2>
-        <?php $activities = getActivitiesByCourse($course_id); ?>
-        <?php if (empty($activities)) : ?>
-            <p>No exams have been uploaded yet.</p>
+        <h2>Quizzes</h2>
+        <?php $quizzes = getQuizzesByCourse($course_id); ?>
+        <?php if (empty($quizzes)) : ?>
+            <p>No quizzes have been created yet.</p>
         <?php else: ?>
-            <div class="activities-list">
-                <?php foreach ($activities as $activity) : ?>
-                    <div class="activity-item">
-                        <div class="activity-info">
-                            <h4><?php echo htmlspecialchars($activity['title']); ?></h4>
-                            <p><?php echo htmlspecialchars($activity['description'] ?? ''); ?></p>
-                            <small><?php echo htmlspecialchars($activity['created_at'] ?? ''); ?></small>
+            <div class="quizzes-list">
+                <?php foreach ($quizzes as $quiz) : ?>
+                    <div class="quiz-item">
+                        <div class="quiz-info">
+                            <h4><?php echo htmlspecialchars($quiz['title']); ?></h4>
+                            <p><?php echo htmlspecialchars($quiz['description'] ?? ''); ?></p>
+                            <small><i class="fas fa-question-circle"></i> <?php echo count($quiz['questions']); ?> questions • <?php echo htmlspecialchars($quiz['created_at'] ?? ''); ?></small>
                         </div>
-                        <div class="submission-actions">
-                            <!-- Add link to take exam or view results if applicable -->
-                            <a class="btn" href="#">Take Exam</a>
+                        <div class="quiz-actions">
+                            <?php
+                            // Check if student has already submitted this quiz
+                            $submissions = getQuizSubmissions($quiz['id']);
+                            $hasSubmitted = false;
+                            foreach ($submissions as $sub) {
+                                if ($sub['student_email'] === $studentEmail) {
+                                    $hasSubmitted = true;
+                                    break;
+                                }
+                            }
+                            if ($hasSubmitted) {
+                                echo '<span class="completed">Completed</span>';
+                            } else {
+                                echo '<a class="btn" href="take_quiz.php?quiz_id=' . urlencode($quiz['id']) . '&course_id=' . urlencode($course_id) . '">Take Quiz</a>';
+                            }
+                            ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
