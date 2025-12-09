@@ -1,0 +1,16 @@
+h1.dashboard-title{
+   font-size: 5rem;
+   color: rgb(35, 35, 185);
+}
+
+.course-details p{
+   margin: 0 0 1rem 0;  
+   font-size: 2rem;
+   color: darkblue;
+}
+
+.section h2{
+   font-size: 3rem;
+   color: darkblue;
+   margin: 0 0 2rem 0;
+}

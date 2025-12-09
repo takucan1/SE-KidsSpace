@@ -42,6 +42,7 @@
     <title><?php echo htmlspecialchars($course['name']); ?> - KidsSpace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="courses.css">
+    <link rel="stylesheet" href="enrolled-course.css">
 </head>
 <body>
 
@@ -129,6 +130,7 @@
 
     <!-- Lessons Section -->
     <div class="section">
+        <hr>
         <h2>Lessons</h2>
         <?php $lessons = getLessonsByCourse($course_id); ?>
         <?php if (empty($lessons)) : ?>
