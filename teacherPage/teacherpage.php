@@ -39,14 +39,17 @@
         <div class="dashboard-grid">
             
             <!-- Courses Card -->
+<<<<<<< HEAD
            
                 <div class="dashboard-card courses-card"> 
                                  
+=======
+                <a href="Courses.html" class="dashboard-card courses-card">
+>>>>>>> c994e63c22078d3ae55d7880308034248df2ab1d
                     <div class="card-icon">📚</div>
                     <h2>Courses</h2>
-                     <p>Manage and view all your courses</p> 
-                     </a>                   
-                </div>
+                    <p>Manage and view all your courses</p>
+                </a>
             
 
             <!-- Quizzes & Activities Card -->

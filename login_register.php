@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
             $_SESSION['email'] = $user['email'];
             
             if($user['role'] === 'student') {
-                header('Location: student_page.php');   
+                header('Location: studentpage/student_page.php');
             } else {
                 header('Location: teacherPage/teacherpage.php');
             }
