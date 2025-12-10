@@ -759,7 +759,37 @@ img{
     background: var(--main-dark);
 }
 
+.dashboard-title{
+    font-size: 5rem;
+    font-weight: 900;
+    color: #7a37ff;
+}
 
+.dashboard-container .course-details p{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #7a37ff;
+    margin-bottom: 25px;
+    padding: 10px 0;    
+}
+
+.section {
+    margin: 5px 0 25px 0;
+    font-weight: 900;
+    font-size: 14px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.section h2{
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #7a37ff;
+    margin-bottom: 25px;
+    padding: 10px 0;
+}
 
 
 
