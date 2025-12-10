@@ -1,0 +1,32 @@
+[
+    {
+        "id": "enrollment_6935922fe9f4c8.87172715",
+        "course_id": "course_6935906ca746b2.81790171",
+        "student_email": "dave@gmail.com",
+        "enrolled_at": "2025-12-07 15:41:51"
+    },
+    {
+        "id": "enrollment_6935990f03a220.63174654",
+        "course_id": "course_69359902cdb1d1.00664136",
+        "student_email": "dave@gmail.com",
+        "enrolled_at": "2025-12-07 16:11:11"
+    },
+    {
+        "id": "enrollment_69359fac1b72c5.50961008",
+        "course_id": "course_6935906ca746b2.81790171",
+        "student_email": "josh@gmail.com",
+        "enrolled_at": "2025-12-07 16:39:24"
+    },
+    {
+        "id": "enrollment_6935aad8720772.43873822",
+        "course_id": "course_69359902cdb1d1.00664136",
+        "student_email": "josh@gmail.com",
+        "enrolled_at": "2025-12-07 17:27:04"
+    },
+    {
+        "id": "enrollment_6935b719274303.16257660",
+        "course_id": "course_6935b710cf4148.15880888",
+        "student_email": "josh@gmail.com",
+        "enrolled_at": "2025-12-07 18:19:21"
+    }
+]

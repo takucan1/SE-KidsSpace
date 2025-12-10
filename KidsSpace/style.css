@@ -1,0 +1,166 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;           
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(107,245,255,0.51) 0%,
+        rgba(247,194,80,0.51) 43%    
+        );
+    color: #333;
+}
+
+.container {
+    margin: 0 15px;
+    
+}
+
+.form-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    opacity: 1;
+}
+
+.form-box.active {
+    display: block;
+}
+
+h2 {
+    font-size: 34px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    background: #eee;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #7494ec;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background: #6884d3;
+}
+
+p {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+p a {
+    color: #7494ec;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    padding: 12px;
+    background: #f8d7da;
+    color: #721c24;
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.box p {
+    font-size: 22px;
+}
+
+.box button {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.kids-space {
+  position: flex;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lilita One-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 64px;
+  text-align: center;
+  letter-spacing: 0.20px;
+  line-height: 20px;
+}
+
+.span {
+  color: #008cff;
+  letter-spacing: 0.13px;
+}
+
+.text-wrapper-2 {
+  color: #6af5ff;
+  letter-spacing: 0.13px;
+}
+
+.text-wrapper-3 {
+  color: #f7c24f;
+  letter-spacing: 0.13px;
+}
+
+.text-wrapper-4 {
+  color: #fcf46c;
+  letter-spacing: 0.13px;
+}
+
+.text-wrapper-5 {
+  color: #de74f6;
+  letter-spacing: 0.13px;
+}
+

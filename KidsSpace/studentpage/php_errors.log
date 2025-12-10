@@ -1,0 +1,40 @@
+[10-Dec-2025 13:39:59 Europe/Berlin] PHP Fatal error:  Uncaught ValueError: mysqli_stmt::bind_param(): Argument #1 ($types) must only contain the "b", "d", "i", "s" type specifiers in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php:54
+Stack trace:
+#0 C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php(54): mysqli_stmt->bind_param('iiiSi', 1, 2, 2, 'A', 1)
+#1 {main}
+  thrown in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php on line 54
+[10-Dec-2025 13:40:13 Europe/Berlin] PHP Fatal error:  Uncaught ValueError: mysqli_stmt::bind_param(): Argument #1 ($types) must only contain the "b", "d", "i", "s" type specifiers in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php:54
+Stack trace:
+#0 C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php(54): mysqli_stmt->bind_param('iiiSi', 1, 2, 2, 'A', 1)
+#1 {main}
+  thrown in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php on line 54
+[10-Dec-2025 13:41:36 Europe/Berlin] PHP Fatal error:  Uncaught ValueError: mysqli_stmt::bind_param(): Argument #1 ($types) must only contain the "b", "d", "i", "s" type specifiers in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php:54
+Stack trace:
+#0 C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php(54): mysqli_stmt->bind_param('iiiSi', 1, 2, 2, 'B', 0)
+#1 {main}
+  thrown in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php on line 54
+[10-Dec-2025 13:41:39 Europe/Berlin] PHP Fatal error:  Uncaught ValueError: mysqli_stmt::bind_param(): Argument #1 ($types) must only contain the "b", "d", "i", "s" type specifiers in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php:54
+Stack trace:
+#0 C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php(54): mysqli_stmt->bind_param('iiiSi', 1, 2, 2, 'B', 0)
+#1 {main}
+  thrown in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php on line 54
+[10-Dec-2025 13:42:01 Europe/Berlin] PHP Fatal error:  Uncaught ValueError: mysqli_stmt::bind_param(): Argument #1 ($types) must only contain the "b", "d", "i", "s" type specifiers in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php:54
+Stack trace:
+#0 C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php(54): mysqli_stmt->bind_param('iiiSi', 1, 2, 2, 'B', 0)
+#1 {main}
+  thrown in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php on line 54
+[10-Dec-2025 13:43:04 Europe/Berlin] PHP Fatal error:  Uncaught ValueError: mysqli_stmt::bind_param(): Argument #1 ($types) must only contain the "b", "d", "i", "s" type specifiers in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php:54
+Stack trace:
+#0 C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php(54): mysqli_stmt->bind_param('iiiSi', 1, 2, 2, 'B', 0)
+#1 {main}
+  thrown in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php on line 54
+[10-Dec-2025 13:43:20 Europe/Berlin] PHP Fatal error:  Uncaught ValueError: mysqli_stmt::bind_param(): Argument #1 ($types) must only contain the "b", "d", "i", "s" type specifiers in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php:54
+Stack trace:
+#0 C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php(54): mysqli_stmt->bind_param('iiiSi', 1, 2, 2, 'B', 0)
+#1 {main}
+  thrown in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php on line 54
+[10-Dec-2025 13:44:15 Europe/Berlin] PHP Fatal error:  Uncaught ValueError: mysqli_stmt::bind_param(): Argument #1 ($types) must only contain the "b", "d", "i", "s" type specifiers in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php:54
+Stack trace:
+#0 C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php(54): mysqli_stmt->bind_param('iiiSi', 1, 2, 2, 'B', 0)
+#1 {main}
+  thrown in C:\XAMPP\htdocs\KidsSpace\studentpage\submit_quiz.php on line 54

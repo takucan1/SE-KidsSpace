@@ -1,0 +1,12 @@
+[
+    {
+        "email": "stephen@gmail.com",
+        "name": "Stephen Hawking",
+        "created_at": "2025-12-07 15:00:00"
+    },
+    {
+        "email": "dave@gmail.com",
+        "name": "Dave Johnson",
+        "created_at": "2025-12-07 16:00:00"
+    }
+]
